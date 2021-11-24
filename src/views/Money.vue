@@ -19,13 +19,13 @@ import {Component, Watch} from 'vue-property-decorator';
 import recordListModel from '@/models/recordListModel';
 import tagListModel from '@/models/tagListModel';
 
-const tagList = tagListModel.fetch();
+
 
 @Component({
   components: {FormItem, Tags, Types, NumberPad},
 })
 export default class Money extends Vue {
-  tags = tagList;
+  tags = window.tagList;
   // eslint-disable-next-line no-undef
   recordList: RecordItem[] = recordListModel.fetch();
   // eslint-disable-next-line no-undef
