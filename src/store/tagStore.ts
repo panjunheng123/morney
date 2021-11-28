@@ -19,7 +19,7 @@ const tagStore = {
     }
     const id = createId().toString();
     this.tagList.push({id, name: name});
-    this.saveTsgs();
+    this.saveTags();
     window.alert('添加成功');
     return 'success';
   },
@@ -32,7 +32,7 @@ const tagStore = {
       }
     }
     this.tagList.splice(index, 1);
-    this.saveTsgs();
+    this.saveTags();
     return true;
   },
   updateTag(id: string, name: string) {
@@ -44,14 +44,14 @@ const tagStore = {
       } else {
         const tag = this.tagList.filter(item => item.id === id)[0];
         tag.name = name;
-        this.saveTsgs();
+        this.saveTags();
         return 'success';
       }
     } else {
       return 'not found';
     }
   },
-  saveTsgs() {
+  saveTags() {
     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.tagList));
   }
 };
